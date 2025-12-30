@@ -873,7 +873,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 16
-      m_TileSpriteIndex: 13
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 6
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -973,7 +973,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 16
-      m_TileSpriteIndex: 18
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 6
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1069,6 +1069,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741826
+  - first: {x: 17, y: -1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 16
+      m_TileSpriteIndex: 18
+      m_TileMatrixIndex: 6
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741826
   - first: {x: -9, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -1125,6 +1135,16 @@ Tilemap:
       m_TileIndex: 16
       m_TileSpriteIndex: 24
       m_TileMatrixIndex: 5
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741826
+  - first: {x: 1, y: 1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 16
+      m_TileSpriteIndex: 10
+      m_TileMatrixIndex: 6
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
@@ -1383,7 +1403,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 16
-      m_TileSpriteIndex: 14
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 6
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1533,7 +1553,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 128
+  - m_RefCount: 130
     m_Data: {fileID: 11400000, guid: 85636285d4fe06442a812a6b1eabc0a8, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
@@ -1556,16 +1576,16 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 8
     m_Data: {fileID: -1783360609, guid: d52d30a64f926514c8755d4d1db2a42b, type: 3}
-  - m_RefCount: 3
+  - m_RefCount: 4
     m_Data: {fileID: -1639097084, guid: d52d30a64f926514c8755d4d1db2a42b, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 15
     m_Data: {fileID: 240076718, guid: d52d30a64f926514c8755d4d1db2a42b, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 1336419361, guid: d52d30a64f926514c8755d4d1db2a42b, type: 3}
-  - m_RefCount: 1
     m_Data: {fileID: 1611317549, guid: d52d30a64f926514c8755d4d1db2a42b, type: 3}
+  - m_RefCount: 2
+    m_Data: {fileID: 1336419361, guid: d52d30a64f926514c8755d4d1db2a42b, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 2088749725, guid: d52d30a64f926514c8755d4d1db2a42b, type: 3}
   - m_RefCount: 5
@@ -1697,7 +1717,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 112
+  - m_RefCount: 114
     m_Data:
       e00: 1
       e01: 0
@@ -1716,7 +1736,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 128
+  - m_RefCount: 130
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -1843,10 +1863,18 @@ CompositeCollider2D:
         Y: 10000000
       - X: 90000000
         Y: 10000000
+    - - X: 20000000
+        Y: 20000000
+      - X: 10000000
+        Y: 20000000
+      - X: 10000000
+        Y: 10000000
+      - X: 20000000
+        Y: 10000000
     - - X: 180000000
-        Y: -10000000
+        Y: 0
       - X: 170000000
-        Y: -10000000
+        Y: 0
       - X: 170000000
         Y: -30000000
       - X: 150000000
@@ -1915,9 +1943,13 @@ CompositeCollider2D:
       - {x: 8.99997, y: 3}
       - {x: 4, y: 2.999971}
       - {x: 4.000029, y: 1}
+    - - {x: 1.9999708, y: 1}
+      - {x: 1.9999708, y: 2}
+      - {x: 1, y: 1.9999708}
+      - {x: 1.0000293, y: 1}
     - - {x: 17.999971, y: -5}
-      - {x: 17.999971, y: -1}
-      - {x: 17, y: -1.0000293}
+      - {x: 17.999971, y: 0}
+      - {x: 17, y: -0.000029300001}
       - {x: 16.999971, y: -3}
       - {x: 15, y: -2.9999707}
       - {x: 14.999971, y: -2}
@@ -8412,9 +8444,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2913562559640742494, guid: 5225cf0fa5215e14da6087eeca253e41, type: 3}
+      propertyPath: jumpSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913562559640742494, guid: 5225cf0fa5215e14da6087eeca253e41, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231636264045424005, guid: 5225cf0fa5215e14da6087eeca253e41, type: 3}
+      propertyPath: m_GravityScale
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231636264045424005, guid: 5225cf0fa5215e14da6087eeca253e41, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3973049842073086044, guid: 5225cf0fa5215e14da6087eeca253e41, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6458844
+      objectReference: {fileID: 0}
     - target: {fileID: 3973049842073086044, guid: 5225cf0fa5215e14da6087eeca253e41, type: 3}
       propertyPath: m_Size.y
       value: 1.035699
+      objectReference: {fileID: 0}
+    - target: {fileID: 3973049842073086044, guid: 5225cf0fa5215e14da6087eeca253e41, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.036135852
       objectReference: {fileID: 0}
     - target: {fileID: 3973049842073086044, guid: 5225cf0fa5215e14da6087eeca253e41, type: 3}
       propertyPath: m_Offset.y
@@ -8422,7 +8478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8330375878431516532, guid: 5225cf0fa5215e14da6087eeca253e41, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.19
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 8330375878431516532, guid: 5225cf0fa5215e14da6087eeca253e41, type: 3}
       propertyPath: m_LocalPosition.y
