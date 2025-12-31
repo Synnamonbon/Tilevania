@@ -10,17 +10,19 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveInput;
 
-    private Rigidbody2D myRigidbody2D;
-    private Animator myAnimator;
-    private CapsuleCollider2D myCapsuleCollider2D;
+    private Rigidbody2D rigidbody;
+    private Animator animator;
+    private CapsuleCollider2D bodyCollider;
+    private BoxCollider2D feetCollider;
     private float gravityStart;
 
     private void Start()
     {
-        myRigidbody2D = GetComponent<Rigidbody2D>();
-        myAnimator = GetComponent<Animator>();
-        myCapsuleCollider2D = GetComponent<CapsuleCollider2D>();
-        gravityStart = myRigidbody2D.gravityScale;
+        rigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        bodyCollider = GetComponent<CapsuleCollider2D>();
+        feetCollider = GetComponent<BoxCollider2D>();
+        gravityStart = rigidbody.gravityScale;
     }
 
     private void Update()
@@ -39,60 +41,60 @@ public class PlayerMovement : MonoBehaviour
     {
         int groundLayer = LayerMask.GetMask("Ground");
 
-        if (value.isPressed && myCapsuleCollider2D.IsTouchingLayers(groundLayer))
+        if (value.isPressed && feetCollider.IsTouchingLayers(groundLayer))
         {
-            myRigidbody2D.linearVelocity += new Vector2 (0f, jumpSpeed);
+            rigidbody.linearVelocity += new Vector2 (0f, jumpSpeed);
         }
     }
 
     private void Run()
     {
-        Vector2 playerVelocity = new Vector2 (moveInput.x * moveSpeed, myRigidbody2D.linearVelocityY);
-        bool hasHorizontalSpeed = Mathf.Abs(myRigidbody2D.linearVelocityX) > Mathf.Epsilon;
+        Vector2 playerVelocity = new Vector2 (moveInput.x * moveSpeed, rigidbody.linearVelocityY);
+        bool hasHorizontalSpeed = Mathf.Abs(rigidbody.linearVelocityX) > Mathf.Epsilon;
 
-        myRigidbody2D.linearVelocity = playerVelocity;
+        rigidbody.linearVelocity = playerVelocity;
         if (hasHorizontalSpeed)
         {
-            myAnimator.SetBool("isRunning", true);
+            animator.SetBool("isRunning", true);
         }
         else
         {
-            myAnimator.SetBool("isRunning", false);
+            animator.SetBool("isRunning", false);
         }
     }
 
     private void Climb()
     {   
-        Vector2 playerVelocity = new Vector2 (myRigidbody2D.linearVelocityX , moveInput.y * climbSpeed);
-        bool hasVerticalSpeed = Mathf.Abs(myRigidbody2D.linearVelocityY) > Mathf.Epsilon;
+        Vector2 playerVelocity = new Vector2 (rigidbody.linearVelocityX , moveInput.y * climbSpeed);
+        bool hasVerticalSpeed = Mathf.Abs(rigidbody.linearVelocityY) > Mathf.Epsilon;
         int climbingLayer = LayerMask.GetMask("Climbing");
 
-        if (!myCapsuleCollider2D.IsTouchingLayers(climbingLayer))
+        if (!bodyCollider.IsTouchingLayers(climbingLayer))
         {
-            myRigidbody2D.gravityScale = gravityStart;
-            myAnimator.SetBool("isClimbing", false);
+            rigidbody.gravityScale = gravityStart;
+            animator.SetBool("isClimbing", false);
             return;
         }
         
-        myRigidbody2D.linearVelocity = playerVelocity;
-        myRigidbody2D.gravityScale = 0;
+        rigidbody.linearVelocity = playerVelocity;
+        rigidbody.gravityScale = 0;
         if (hasVerticalSpeed)
         {
-            myAnimator.SetBool("isClimbing", true);
+            animator.SetBool("isClimbing", true);
         }
         else
         {
-            myAnimator.SetBool("isClimbing", false);
+            animator.SetBool("isClimbing", false);
         }
     }
 
     private void FlipSprite()
     {
-        bool hasHorizontalSpeed = Mathf.Abs(myRigidbody2D.linearVelocityX) > Mathf.Epsilon;
+        bool hasHorizontalSpeed = Mathf.Abs(rigidbody.linearVelocityX) > Mathf.Epsilon;
 
         if (hasHorizontalSpeed)
         {
-            transform.localScale = new Vector2 (Mathf.Sign(myRigidbody2D.linearVelocityX), 1f);
+            transform.localScale = new Vector2 (Mathf.Sign(rigidbody.linearVelocityX), 1f);
         }
     }
 }
