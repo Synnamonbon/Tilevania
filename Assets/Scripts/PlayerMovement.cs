@@ -70,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
         if (!myCapsuleCollider2D.IsTouchingLayers(climbingLayer))
         {
             myRigidbody2D.gravityScale = gravityStart;
+            myAnimator.SetBool("isClimbing", false);
             return;
         }
         
