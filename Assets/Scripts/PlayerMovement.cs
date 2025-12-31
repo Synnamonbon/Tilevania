@@ -10,19 +10,19 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveInput;
 
-    private Rigidbody2D rigidbody;
-    private Animator animator;
-    private CapsuleCollider2D bodyCollider;
-    private BoxCollider2D feetCollider;
+    private Rigidbody2D myRigidbody;
+    private Animator myAnimator;
+    private CapsuleCollider2D myBodyCollider;
+    private BoxCollider2D myFeetCollider;
     private float gravityStart;
 
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        bodyCollider = GetComponent<CapsuleCollider2D>();
-        feetCollider = GetComponent<BoxCollider2D>();
-        gravityStart = rigidbody.gravityScale;
+        myRigidbody = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
+        myBodyCollider = GetComponent<CapsuleCollider2D>();
+        myFeetCollider = GetComponent<BoxCollider2D>();
+        gravityStart = myRigidbody.gravityScale;
     }
 
     private void Update()
@@ -41,60 +41,60 @@ public class PlayerMovement : MonoBehaviour
     {
         int groundLayer = LayerMask.GetMask("Ground");
 
-        if (value.isPressed && feetCollider.IsTouchingLayers(groundLayer))
+        if (value.isPressed && myFeetCollider.IsTouchingLayers(groundLayer))
         {
-            rigidbody.linearVelocity += new Vector2 (0f, jumpSpeed);
+            myRigidbody.linearVelocity += new Vector2 (0f, jumpSpeed);
         }
     }
 
     private void Run()
     {
-        Vector2 playerVelocity = new Vector2 (moveInput.x * moveSpeed, rigidbody.linearVelocityY);
-        bool hasHorizontalSpeed = Mathf.Abs(rigidbody.linearVelocityX) > Mathf.Epsilon;
+        Vector2 playerVelocity = new Vector2 (moveInput.x * moveSpeed, myRigidbody.linearVelocityY);
+        bool hasHorizontalSpeed = Mathf.Abs(myRigidbody.linearVelocityX) > Mathf.Epsilon;
 
-        rigidbody.linearVelocity = playerVelocity;
+        myRigidbody.linearVelocity = playerVelocity;
         if (hasHorizontalSpeed)
         {
-            animator.SetBool("isRunning", true);
+            myAnimator.SetBool("isRunning", true);
         }
         else
         {
-            animator.SetBool("isRunning", false);
+            myAnimator.SetBool("isRunning", false);
         }
     }
 
     private void Climb()
     {   
-        Vector2 playerVelocity = new Vector2 (rigidbody.linearVelocityX , moveInput.y * climbSpeed);
-        bool hasVerticalSpeed = Mathf.Abs(rigidbody.linearVelocityY) > Mathf.Epsilon;
+        Vector2 playerVelocity = new Vector2 (myRigidbody.linearVelocityX , moveInput.y * climbSpeed);
+        bool hasVerticalSpeed = Mathf.Abs(myRigidbody.linearVelocityY) > Mathf.Epsilon;
         int climbingLayer = LayerMask.GetMask("Climbing");
 
-        if (!bodyCollider.IsTouchingLayers(climbingLayer))
+        if (!myBodyCollider.IsTouchingLayers(climbingLayer))
         {
-            rigidbody.gravityScale = gravityStart;
-            animator.SetBool("isClimbing", false);
+            myRigidbody.gravityScale = gravityStart;
+            myAnimator.SetBool("isClimbing", false);
             return;
         }
         
-        rigidbody.linearVelocity = playerVelocity;
-        rigidbody.gravityScale = 0;
+        myRigidbody.linearVelocity = playerVelocity;
+        myRigidbody.gravityScale = 0;
         if (hasVerticalSpeed)
         {
-            animator.SetBool("isClimbing", true);
+            myAnimator.SetBool("isClimbing", true);
         }
         else
         {
-            animator.SetBool("isClimbing", false);
+            myAnimator.SetBool("isClimbing", false);
         }
     }
 
     private void FlipSprite()
     {
-        bool hasHorizontalSpeed = Mathf.Abs(rigidbody.linearVelocityX) > Mathf.Epsilon;
+        bool hasHorizontalSpeed = Mathf.Abs(myRigidbody.linearVelocityX) > Mathf.Epsilon;
 
         if (hasHorizontalSpeed)
         {
-            transform.localScale = new Vector2 (Mathf.Sign(rigidbody.linearVelocityX), 1f);
+            transform.localScale = new Vector2 (Mathf.Sign(myRigidbody.linearVelocityX), 1f);
         }
     }
 }
