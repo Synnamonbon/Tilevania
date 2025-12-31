@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float jumpSpeed = 1f;
     [SerializeField] private float climbSpeed = 1f;
-
+    [SerializeField] private Vector2 deathFling = new Vector2 (10f, 20f);
+    
     private Vector2 moveInput;
     private bool isAlive = true;
 
@@ -111,7 +112,9 @@ public class PlayerMovement : MonoBehaviour
         if (myBodyCollider.IsTouchingLayers(enemyLayer))
         {
             isAlive = false;
-        }    
+            myAnimator.SetTrigger("Dying");
+            myRigidbody2D.linearVelocity = deathFling;
+        }
     }
 
 }
