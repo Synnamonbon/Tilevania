@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpSpeed = 1f;
     [SerializeField] private float climbSpeed = 1f;
     [SerializeField] private Vector2 deathFling = new Vector2 (10f, 20f);
+    [SerializeField] private GameObject arrow;
+    [SerializeField] private Transform bow;
     
     private Vector2 moveInput;
     private bool isAlive = true;
@@ -107,14 +109,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Die()
     {
-        int enemyLayer = LayerMask.GetMask("Enemies");
-
-        if (myBodyCollider.IsTouchingLayers(enemyLayer))
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies", "Hazards")))
         {
             isAlive = false;
             myAnimator.SetTrigger("Dying");
             myRigidbody2D.linearVelocity = deathFling;
         }
+    }
+
+    private void OnAttack(InputValue value)
+    {
+        if (!isAlive) {return;}
+        Instantiate(arrow, bow.position, transform.rotation);
     }
 
 }
