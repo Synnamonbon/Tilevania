@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float jumpSpeed = 1f;
     [SerializeField] private float climbSpeed = 1f;
+    [SerializeField] private float shootDelay = 0.25f;
+
     [SerializeField] private Vector2 deathFling = new Vector2 (10f, 20f);
     [SerializeField] private GameObject arrow;
     [SerializeField] private Transform bow;
@@ -122,6 +124,12 @@ public class PlayerMovement : MonoBehaviour
     private void OnAttack(InputValue value)
     {
         if (!isAlive) {return;}
+        myAnimator.SetTrigger("Shooting");
+        Invoke("CreateArrow", shootDelay);
+    }
+
+    private void CreateArrow()
+    {
         Instantiate(arrow, bow.position, transform.rotation);
     }
 

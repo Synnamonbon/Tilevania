@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8280300714722133822}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 291191299
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 1857188551261513057, guid: 401bfda06bc9ceb4aa97386c3883f57b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -226,9 +226,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
-  jumpSpeed: 15.5
+  jumpSpeed: 16
   climbSpeed: 7
-  deathFling: {x: 10, y: 20}
+  shootDelay: 0.25
+  deathFling: {x: 2, y: 20}
   arrow: {fileID: 3184534464611781305, guid: 2c578d2687e434044859f4dfde7d97c9, type: 3}
   bow: {fileID: 5738234895189964902}
 --- !u!61 &8280300714722133822

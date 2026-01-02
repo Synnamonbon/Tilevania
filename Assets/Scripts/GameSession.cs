@@ -41,7 +41,7 @@ public class GameSession : MonoBehaviour
         }
         else
         {
-            ResetGameSession();
+            Invoke("ResetGameSession", sceneResetTimer);
         }
     }
 
