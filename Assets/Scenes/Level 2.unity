@@ -4989,11 +4989,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2716285906944957374, guid: e28eb6aad27f46046b9983823d132910, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 39.04
+      value: 39.32
       objectReference: {fileID: 0}
     - target: {fileID: 2716285906944957374, guid: e28eb6aad27f46046b9983823d132910, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.02
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2716285906944957374, guid: e28eb6aad27f46046b9983823d132910, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14116,11 +14116,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581570930957193229, guid: 990345bec2cd3544882e7d02fc5514e4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.657518
+      value: 8.663318
       objectReference: {fileID: 0}
     - target: {fileID: 2581570930957193229, guid: 990345bec2cd3544882e7d02fc5514e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.35991
+      value: -1.3599
       objectReference: {fileID: 0}
     - target: {fileID: 2581570930957193229, guid: 990345bec2cd3544882e7d02fc5514e4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14179,6 +14179,14 @@ PrefabInstance:
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 2102882389}
+    - target: {fileID: 4310014392160759545, guid: 9485089030521314ea19f5288e1710e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5962405
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310014392160759545, guid: 9485089030521314ea19f5288e1710e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8233502
+      objectReference: {fileID: 0}
     - target: {fileID: 4863887981766220463, guid: 9485089030521314ea19f5288e1710e2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.71376
@@ -14223,9 +14231,25 @@ PrefabInstance:
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 2102882389}
+    - target: {fileID: 5357571608477903950, guid: 9485089030521314ea19f5288e1710e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5962415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357571608477903950, guid: 9485089030521314ea19f5288e1710e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8233509
+      objectReference: {fileID: 0}
     - target: {fileID: 5828872017558428634, guid: 9485089030521314ea19f5288e1710e2, type: 3}
       propertyPath: m_Name
       value: State-Driven Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921612081735582954, guid: 9485089030521314ea19f5288e1710e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5962405
+      objectReference: {fileID: 0}
+    - target: {fileID: 5921612081735582954, guid: 9485089030521314ea19f5288e1710e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8233502
       objectReference: {fileID: 0}
     - target: {fileID: 6524475167810238506, guid: 9485089030521314ea19f5288e1710e2, type: 3}
       propertyPath: BoundingShape2D
