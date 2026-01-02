@@ -11,8 +11,6 @@ public class GameSession : MonoBehaviour
     [SerializeField] private TextMeshProUGUI livesText;
     [SerializeField] private TextMeshProUGUI scoreText;
 
-    private int levelStartScore;
-
     private void Awake()
     {
         int numberGameSession = FindObjectsByType<GameSession>(FindObjectsSortMode.None).Length;
@@ -47,6 +45,7 @@ public class GameSession : MonoBehaviour
 
     private void ResetGameSession()
     {
+        FindFirstObjectByType<ScenePersist>().DestroyScenePersist();
         SceneManager.LoadScene(0);
         Destroy(gameObject);
     }
@@ -57,19 +56,7 @@ public class GameSession : MonoBehaviour
 
         playerLives --;
         livesText.text = playerLives.ToString();
-        ResetLevelScore();
-        scoreText.text = playerScore.ToString();
         SceneManager.LoadScene(currentSceneIndex);
-    }
-
-    private void ResetLevelScore()
-    {
-        playerScore = levelStartScore;
-    }
-
-    public void SetStartScore()
-    {
-        levelStartScore = playerScore;
     }
 
     public void PickupCoin(int coinValue)

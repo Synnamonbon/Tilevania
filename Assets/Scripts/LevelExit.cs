@@ -23,9 +23,8 @@ public class LevelExit : MonoBehaviour
             nextSceneIndex = 0;
         }
 
+        FindFirstObjectByType<ScenePersist>().DestroyScenePersist();
         SceneManager.LoadScene(nextSceneIndex);
-        FindAnyObjectByType<GameSession>().SetStartScore();
-
     }
 
 }
