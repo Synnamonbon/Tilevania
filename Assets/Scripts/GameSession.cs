@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,7 @@ public class GameSession : MonoBehaviour
 {
     [SerializeField] private int playerLives = 3;
     [SerializeField] private int playerScore = 0;
+    [SerializeField] private float sceneResetTimer = 1f;
 
     [SerializeField] private TextMeshProUGUI livesText;
     [SerializeField] private TextMeshProUGUI scoreText;
@@ -45,8 +47,10 @@ public class GameSession : MonoBehaviour
 
     private void ResetGameSession()
     {
+        int sceneIndex = 0;
+
         FindFirstObjectByType<ScenePersist>().DestroyScenePersist();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(sceneIndex);
         Destroy(gameObject);
     }
 
@@ -56,7 +60,15 @@ public class GameSession : MonoBehaviour
 
         playerLives --;
         livesText.text = playerLives.ToString();
-        SceneManager.LoadScene(currentSceneIndex);
+
+        StartCoroutine(ResetScene(currentSceneIndex));
+    }
+
+    private IEnumerator ResetScene(int sceneIndex)
+    {
+        yield return new WaitForSecondsRealtime(sceneResetTimer);
+
+        SceneManager.LoadScene(sceneIndex);
     }
 
     public void PickupCoin(int coinValue)
