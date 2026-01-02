@@ -24,6 +24,7 @@ public class LevelExit : MonoBehaviour
         }
 
         SceneManager.LoadScene(nextSceneIndex);
+        FindAnyObjectByType<GameSession>().SetStartScore();
 
     }
 
